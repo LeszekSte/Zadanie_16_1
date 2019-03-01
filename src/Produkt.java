@@ -4,29 +4,19 @@ public class Produkt {
     String nazwa;
     BigDecimal bruttoPrice;
     BigDecimal nettoPrice;
-    BigDecimal vat;
+    private BigDecimal vat;
 
     public Produkt(String nazwa, BigDecimal bruttoPrice, BigDecimal vat) {
         this.nazwa = nazwa;
         this.bruttoPrice = bruttoPrice;
-        this.vat = vat;
+        this.setVat(vat);
     }
 
     public Produkt(String nazwa, BigDecimal bruttoPrice, BigDecimal nettoPrice, BigDecimal vat) {
         this.nazwa = nazwa;
         this.bruttoPrice = bruttoPrice;
         this.nettoPrice = nettoPrice;
-        this.vat = vat;
-    }
-
-    @Override
-    public String toString() {
-        return "Produkt{" +
-                "nazwa='" + nazwa + '\'' +
-                ", bruttoPrice=" + bruttoPrice +
-                ", nettoPrice=" + nettoPrice +
-                ", vat=" + vat +
-                '}';
+        this.setVat(vat);
     }
 
     public String getNazwa() {
@@ -59,5 +49,17 @@ public class Produkt {
 
     public void setVat(BigDecimal vat) {
         this.vat = vat;
+    }
+
+    @Override
+    public String toString() {
+
+
+        return "Produkt{" +
+                "nazwa='" + nazwa + '\'' +
+                ", bruttoPrice=" + bruttoPrice +
+                ", nettoPrice=" + nettoPrice +
+                ", vat=" + getVat() +
+                '}';
     }
 }
